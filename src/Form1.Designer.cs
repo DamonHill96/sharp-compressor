@@ -32,8 +32,13 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnRLE = new System.Windows.Forms.Button();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.lblCurrentDir = new System.Windows.Forms.Label();
+            this.btnSelectDir = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.btnHuffman = new System.Windows.Forms.Button();
+            this.btnAutomatic = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,31 +73,83 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // button1
+            // btnRLE
             // 
-            this.button1.Location = new System.Drawing.Point(47, 46);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRLE.Location = new System.Drawing.Point(10, 36);
+            this.btnRLE.Name = "btnRLE";
+            this.btnRLE.Size = new System.Drawing.Size(139, 23);
+            this.btnRLE.TabIndex = 1;
+            this.btnRLE.Text = "Run-Length Encoding";
+            this.btnRLE.UseVisualStyleBackColor = true;
+            this.btnRLE.Click += new System.EventHandler(this.btnRLE_Click);
             // 
-            // listBox1
+            // btnUp
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(10, 242);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(777, 186);
-            this.listBox1.TabIndex = 2;
+            this.btnUp.Location = new System.Drawing.Point(10, 215);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(44, 21);
+            this.btnUp.TabIndex = 3;
+            this.btnUp.Text = "Up";
+            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            // 
+            // lblCurrentDir
+            // 
+            this.lblCurrentDir.AutoSize = true;
+            this.lblCurrentDir.Location = new System.Drawing.Point(10, 163);
+            this.lblCurrentDir.Name = "lblCurrentDir";
+            this.lblCurrentDir.Size = new System.Drawing.Size(35, 13);
+            this.lblCurrentDir.TabIndex = 4;
+            this.lblCurrentDir.Text = "label1";
+            // 
+            // btnSelectDir
+            // 
+            this.btnSelectDir.Location = new System.Drawing.Point(677, 215);
+            this.btnSelectDir.Name = "btnSelectDir";
+            this.btnSelectDir.Size = new System.Drawing.Size(110, 21);
+            this.btnSelectDir.TabIndex = 5;
+            this.btnSelectDir.Text = "Select Directory";
+            this.btnSelectDir.UseVisualStyleBackColor = true;
+            this.btnSelectDir.Click += new System.EventHandler(this.btnSelectDir_Click);
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(10, 260);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(778, 184);
+            this.checkedListBox1.TabIndex = 6;
+            // 
+            // btnHuffman
+            // 
+            this.btnHuffman.Location = new System.Drawing.Point(184, 36);
+            this.btnHuffman.Name = "btnHuffman";
+            this.btnHuffman.Size = new System.Drawing.Size(139, 23);
+            this.btnHuffman.TabIndex = 7;
+            this.btnHuffman.Text = "Huffman Coding";
+            this.btnHuffman.UseVisualStyleBackColor = true;
+            // 
+            // btnAutomatic
+            // 
+            this.btnAutomatic.Location = new System.Drawing.Point(365, 36);
+            this.btnAutomatic.Name = "btnAutomatic";
+            this.btnAutomatic.Size = new System.Drawing.Size(139, 23);
+            this.btnAutomatic.TabIndex = 8;
+            this.btnAutomatic.Text = "Auto-Select";
+            this.btnAutomatic.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAutomatic);
+            this.Controls.Add(this.btnHuffman);
+            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.btnSelectDir);
+            this.Controls.Add(this.lblCurrentDir);
+            this.Controls.Add(this.btnUp);
+            this.Controls.Add(this.btnRLE);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -110,8 +167,13 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnRLE;
+        private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.Label lblCurrentDir;
+        private System.Windows.Forms.Button btnSelectDir;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Button btnHuffman;
+        private System.Windows.Forms.Button btnAutomatic;
     }
 }
 
