@@ -46,17 +46,17 @@ namespace compalg
         {
             
             algorithms.RunLengthEncoding runLengthEncoding = new algorithms.RunLengthEncoding();
-            Open();
+            Open("RLE files (*.rle) |*.rle |All Files (*.*) | *.*");
             string textToDecodeStr = readFile();
             string[] textToDecode = textToDecodeStr.Split(','); //delimited by ,
             runLengthEncoding.DoDecode(textToDecode);
         }
 
-        public void Save()
+        public void Save(string filter)
         {
             
             SaveFileDialog save = new SaveFileDialog();
-            save.Filter = "Text files (*.txt) |*.txt |All Files (*.*) | *.*";
+            save.Filter = filter;
             save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             if (save.ShowDialog() == DialogResult.OK)
@@ -68,17 +68,22 @@ namespace compalg
             }
              
         }
-        public void Open()
+        public void Open(string filter)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Text files (*.txt) |*.txt|All Files (*.*) | *.*";
-                       
+            open.Filter = filter;
+
+
             if (open.ShowDialog() == DialogResult.OK)
             {
                 dir = open.FileName;  
                 Console.WriteLine("File opened: " + open.FileName + " At directory: " + Path.GetFullPath(dir));
 
 
+            }
+            else
+            {
+                return;
             }
         }
 

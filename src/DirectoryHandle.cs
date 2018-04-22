@@ -14,7 +14,7 @@ namespace dir
         public String[] GetDirContents()
         {
 
-           return Directory.GetFiles(dir);
+           return Directory.GetFiles(dir, "*.txt", SearchOption.TopDirectoryOnly);
             
         }
 

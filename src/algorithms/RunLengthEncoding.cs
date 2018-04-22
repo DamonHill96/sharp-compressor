@@ -29,7 +29,7 @@ namespace algorithms
 
             }
             Console.WriteLine(sb.ToString());
-            Save();
+            Save("RLE files (*.rle) |*.rle |All Files (*.*) | *.*");
             writeFile(sb.ToString());
         }
 
@@ -53,7 +53,7 @@ namespace algorithms
             }
 
             Console.WriteLine(sb.ToString());
-            Save();
+            Save("Text files (*.txt) |*.txt |All Files (*.*) | *.*");
             writeFile(sb.ToString());
         }
     }
