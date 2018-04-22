@@ -44,10 +44,11 @@ namespace compalg
 
         internal void setupRLEDecode()
         {
+            
             algorithms.RunLengthEncoding runLengthEncoding = new algorithms.RunLengthEncoding();
             Open();
             string textToDecodeStr = readFile();
-            char[] textToDecode = textToDecodeStr.ToCharArray();
+            string[] textToDecode = textToDecodeStr.Split(','); //delimited by ,
             runLengthEncoding.DoDecode(textToDecode);
         }
 
