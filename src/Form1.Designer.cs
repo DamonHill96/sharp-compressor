@@ -39,6 +39,7 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.btnHuffman = new System.Windows.Forms.Button();
             this.btnAutomatic = new System.Windows.Forms.Button();
+            this.btnDecode = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,11 +139,22 @@
             this.btnAutomatic.Text = "Auto-Select";
             this.btnAutomatic.UseVisualStyleBackColor = true;
             // 
+            // btnDecode
+            // 
+            this.btnDecode.Location = new System.Drawing.Point(10, 96);
+            this.btnDecode.Name = "btnDecode";
+            this.btnDecode.Size = new System.Drawing.Size(139, 23);
+            this.btnDecode.TabIndex = 9;
+            this.btnDecode.Text = "Decode RLE";
+            this.btnDecode.UseVisualStyleBackColor = true;
+            this.btnDecode.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDecode);
             this.Controls.Add(this.btnAutomatic);
             this.Controls.Add(this.btnHuffman);
             this.Controls.Add(this.checkedListBox1);
@@ -174,6 +186,7 @@
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button btnHuffman;
         private System.Windows.Forms.Button btnAutomatic;
+        private System.Windows.Forms.Button btnDecode;
     }
 }
 
