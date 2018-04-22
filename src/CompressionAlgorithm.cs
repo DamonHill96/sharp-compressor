@@ -42,37 +42,67 @@ namespace compalg
             runLengthEncoding.DoEncode(text);
         }
 
+        internal void setupRLEDecode()
+        {
+            algorithms.RunLengthEncoding runLengthEncoding = new algorithms.RunLengthEncoding();
+            Open();
+            string textToDecodeStr = readFile();
+            char[] textToDecode = textToDecodeStr.ToCharArray();
+            runLengthEncoding.DoDecode(textToDecode);
+        }
+
         public void Save()
         {
             
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Text files (*.txt) |*.txt |All Files (*.*) | *.*";
-            save.FileName = "Untitled";
-            filename = save.FileName;
+            save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             if (save.ShowDialog() == DialogResult.OK)
             {
-                dir = save.FileName;  //repeated to get new directory
+                dir = save.FileName;  
                 Console.WriteLine("File written: " + filename + " At directory: " + Path.GetFullPath(dir));
                 
                 
             }
              
         }
+        public void Open()
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Text files (*.txt) |*.txt|All Files (*.*) | *.*";
+                       
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                dir = open.FileName;  
+                Console.WriteLine("File opened: " + open.FileName + " At directory: " + Path.GetFullPath(dir));
 
-     
-        public void writeFile(string compressedText)
+
+            }
+        }
+
+        public void writeFile(string text)
         {
             try
             {
-                Console.WriteLine("compressed text: " + compressedText);
-                File.WriteAllText(dir, compressedText);
+                Console.WriteLine("compressed text: " + text);
+                Console.WriteLine(dir);
+                File.WriteAllText(dir, text);
             }
             catch (IOException e)
             {
                 Console.WriteLine(e.StackTrace);
             }
              
+        }
+
+       public string readFile()
+        {
+            StreamReader sr = new StreamReader(dir);
+            string read = sr.ReadToEnd();
+            Console.WriteLine(read);
+
+            return read;
         }
     }
 }

@@ -31,5 +31,10 @@ namespace algorithms
             Save();
             writeFile(sb.ToString());
         }
+
+        public void DoDecode(char[] text)
+        {
+
+        }
     }
 }

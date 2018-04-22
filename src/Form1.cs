@@ -68,9 +68,12 @@ namespace C_sharp_Compressor
 
         }
 
-        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+       
+
+        private void button1_Click(object sender, EventArgs e)
         {
-           
+            compalg.CompressionAlgorithm compressionAlgorithm = new compalg.CompressionAlgorithm();
+            compressionAlgorithm.setupRLEDecode();
         }
     }
 }
