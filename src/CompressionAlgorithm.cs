@@ -34,12 +34,17 @@ namespace compalg
             algorithms.RunLengthEncoding runLengthEncoding = new algorithms.RunLengthEncoding();
 
             //TODO concurrency
-            StreamReader sr = new StreamReader(files[0]); // Get first file
-            string textStr = sr.ReadToEnd(); // Read contents of file, split it up for concurrency
-            char[] text = textStr.ToCharArray(); 
-            Console.WriteLine(text);
+            for(int i = 0; i < files.Length; i++)
+            {
+            
 
-            runLengthEncoding.DoEncode(text);
+                StreamReader sr = new StreamReader(files[i]); // Get first file
+                string textStr = sr.ReadToEnd(); // Read contents of file, split it up for concurrency
+                char[] text = textStr.ToCharArray();
+                Console.WriteLine(text);
+
+                runLengthEncoding.DoEncode(text);
+            }
         }
 
         internal void setupRLEDecode()
@@ -51,6 +56,12 @@ namespace compalg
             string[] textToDecode = textToDecodeStr.Split(','); //delimited by ,
             runLengthEncoding.DoDecode(textToDecode);
         }
+
+        internal void setupHuffmanEncode()
+        {
+            throw new NotImplementedException();
+        }
+
 
         public void Save(string filter)
         {
@@ -87,6 +98,7 @@ namespace compalg
             }
         }
 
+      
         public void writeFile(string text)
         {
             try

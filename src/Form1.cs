@@ -75,5 +75,29 @@ namespace C_sharp_Compressor
             compalg.CompressionAlgorithm compressionAlgorithm = new compalg.CompressionAlgorithm();
             compressionAlgorithm.setupRLEDecode();
         }
+
+        private void btnHuffman_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string[] filesToCheck = new string[checkedListBox1.CheckedItems.Count];
+                int i = 0;
+                foreach (var item in checkedListBox1.CheckedItems)
+                {
+                    filesToCheck[i] = item.ToString();
+                    Console.WriteLine(filesToCheck[i]);
+                    i++;
+                }
+                compalg.CompressionAlgorithm compressionAlgorithm = new compalg.CompressionAlgorithm(filesToCheck);
+                compressionAlgorithm.setupHuffmanEncode();
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("No files selected!", "Error");
+                return;
+            }
+        }
+    }
     }
 }

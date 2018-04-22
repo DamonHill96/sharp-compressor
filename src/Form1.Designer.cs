@@ -129,6 +129,7 @@
             this.btnHuffman.TabIndex = 7;
             this.btnHuffman.Text = "Huffman Coding";
             this.btnHuffman.UseVisualStyleBackColor = true;
+            this.btnHuffman.Click += new System.EventHandler(this.btnHuffman_Click);
             // 
             // btnAutomatic
             // 
