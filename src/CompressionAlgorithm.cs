@@ -36,14 +36,8 @@ namespace compalg
             //TODO concurrency
             for(int i = 0; i < files.Length; i++)
             {
-            
-
-                StreamReader sr = new StreamReader(files[i]); // Get first file
-                string textStr = sr.ReadToEnd(); // Read contents of file, split it up for concurrency
-                char[] text = textStr.ToCharArray();
-                Console.WriteLine(text);
-
-                runLengthEncoding.DoEncode(text);
+                
+                runLengthEncoding.DoEncode(ReadMultipleFiles(i));
             }
         }
 
@@ -52,18 +46,28 @@ namespace compalg
             
             algorithms.RunLengthEncoding runLengthEncoding = new algorithms.RunLengthEncoding();
             Open("RLE files (*.rle) |*.rle |All Files (*.*) | *.*");
-            string textToDecodeStr = readFile();
+            string textToDecodeStr = ReadSingleFile();
             string[] textToDecode = textToDecodeStr.Split(','); //delimited by ,
             runLengthEncoding.DoDecode(textToDecode);
         }
 
         internal void setupHuffmanEncode()
         {
-            throw new NotImplementedException();
+            algorithms.HuffmanCoding huffmanCoding = new algorithms.HuffmanCoding();
+
+            //TODO concurrency
+            for (int i = 0; i < files.Length; i++)
+            { 
+
+                huffmanCoding.DoEncode(ReadMultipleFiles(i));
+
+            }
+
         }
 
+        
 
-        public void Save(string filter)
+        public void SaveFile(string filter)
         {
             
             SaveFileDialog save = new SaveFileDialog();
@@ -78,6 +82,11 @@ namespace compalg
                 
             }
              
+        }
+        // Called when more than one file is checked
+        public void BatchSave(string filter)
+        {
+            throw new NotImplementedException();
         }
         public void Open(string filter)
         {
@@ -114,13 +123,23 @@ namespace compalg
              
         }
 
-       public string readFile()
+       public string ReadSingleFile()
         {
             StreamReader sr = new StreamReader(dir);
             string read = sr.ReadToEnd();
             Console.WriteLine(read);
 
             return read;
+        }
+
+        public char[] ReadMultipleFiles(int i)
+        {
+            StreamReader sr = new StreamReader(files[i]); // Get first file
+            string textStr = sr.ReadToEnd(); // Read contents of file, split it up for concurrency
+            char[] text = textStr.ToCharArray();
+            Console.WriteLine(text);
+
+            return text;
         }
     }
 }

@@ -8,5 +8,9 @@ namespace algorithms
 {
     class HuffmanCoding
     {
+        internal void DoEncode(char[] text)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

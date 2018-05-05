@@ -99,5 +99,5 @@ namespace C_sharp_Compressor
             }
         }
     }
-    }
+    
 }
